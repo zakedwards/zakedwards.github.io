@@ -1,0 +1,259 @@
+html, body {height: 100%;}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #ae3136;
+    font-family: 'CMUSerifRoman';
+    font-size: 11pt;
+    font-weight: 300;
+    color: #3f3f3f;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    color: #454445;
+}
+
+p, ol, ul {margin-top: 0;}
+
+ol, ul {
+    padding: 0;
+    list-style: none;
+}
+
+p {line-height: 180%;}
+
+i {font-family: 'CMUSerifOblique';}
+
+b {font-family: 'CMUSerifBold';}
+
+n {color: #000000;}
+
+t {font-family: 'CMUTypewriterTextRoman';}
+
+sc, st {font-variant: small-caps;}
+
+st {
+    font-family: 'CMUTypewriterTextRoman';
+    font-size: 13pt;
+}
+
+pad {padding-left: 20px;}
+
+a {color: #ae3136;}
+
+a:hover {text-decoration: none;}
+
+a[href$=".java"], a[href$=".jj"], a[href$=".sh"] {
+    background: url("images/icon.png") no-repeat left;
+    padding-left: 20px;
+}
+
+a[href$=".pdf"]:after {
+    content: "PDF";
+    vertical-align: super;
+    color: #000000;
+    font-family: 'CMUTypewriterTextVariable';
+    font-size: 7pt;
+    display: inline-block;
+    width: 0;
+    padding-left: 2px;
+}
+
+.container {
+    margin: 0px auto;
+    width: 1200px;
+}
+
+
+/*********************************************************************************/
+/* Heading Titles                                                                */
+/*********************************************************************************/
+
+.title {margin-bottom: 1.5em;}
+
+.title h2 {
+    font-weight: 400;
+    font-size: 2.8em;
+    color: #323232;
+    text-transform: uppercase;
+}
+
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+#header {
+    position: relative;
+    height: 100px;
+}
+
+#logo {
+    position: absolute;
+    top: 2em;
+    left: 0;
+    width: 100%;
+}
+
+#logo h1 {
+    display: inline-block;
+    font-size: 3.5em;
+    font-variant: small-caps;
+    color: #ae3136;
+    padding-right: 0.50em;
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+
+#logo span {
+    display: inline-block;
+    padding-left: 1.50em;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    font-size: 0.90em;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #ae3136;
+}
+
+
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+
+#menu {
+    position: absolute;
+    right: 0;
+    top: 2.75em;
+}
+
+#menu ul {display: inline-block;}
+
+#menu li {
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+#menu li a, #menu li span {
+    display: inline-block;
+    margin-left: 5em;
+    padding: 1em 1.5em;
+    letter-spacing: 0.10em;
+    text-decoration: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    outline: 0;
+    color: #212121;
+}
+
+#menu li:hover a, #menu li.active a, #menu li.active span {}
+
+#menu .current_page_item a:after {
+    content: '';
+    height: 3px;
+    background: #ae3136; 
+    display:block;
+}
+
+#menu .icon {}
+
+
+/*********************************************************************************/
+/* Formatting                                                                    */
+/*********************************************************************************/
+
+#wrapper, #sub-wrapper, #header-wrapper {background: #ffffff;}
+
+#sub-wrapper {
+    overflow: hidden;
+    padding: 7em 0em;
+    text-align: left;
+}
+
+.column1,  .column2,  .column3,  .column4 {width: 282px;}
+
+.column1,  .column2 {
+    float: left;
+    margin-right: 24px;
+}
+
+.column3 {float: left;}
+
+.column4 {float: right;}
+
+.margin-btm {
+    overflow: hidden;
+    margin-bottom: 5em;
+    padding-bottom: 5em;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.extra2 {}
+
+.extra2 .button {margin-top: 2em;}
+
+.extra2 .title h2 {font-size: 1.5em;}
+
+.extra2 .title .byline {font-size: 0.80em;}
+
+.extra2 .ebox1, .extra2 .ebox1b, .extra2 .ebox2 {
+    width: 560px;
+    font-size: 0.95em;
+}
+
+.extra2 .ebox1, .extra2 .ebox1b {
+    float: left;
+    padding-right: 40px;
+}
+
+.extra2  .ebox1 {
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+
+.extra2  .ebox1b {
+    padding-top: 20px;
+}
+
+.extra2 .ebox2 {float: right;}
+
+.sub {padding-left: 1.5em;}
+
+.sub2 {padding-left: 0.75em;}
+
+.sub-border {
+    padding-left: 0.75em;
+    border-left: 1px solid rgba(0,0,0,.1);
+    margin-left: 0.75em;
+}
+
+.table{
+    display: table;
+    width: 100%;
+}
+
+.table-row {display: table-row;}
+
+.table-cell, .table-cell__a--1, .table-cell__a--2, .table-cell__b {
+    display: table-cell;
+    padding: 3px 10px;
+}
+
+.table-cell__a--1 {
+    width: 6em;
+}
+
+.table-cell__a--2 {
+    width: 12em;
+}
+
+.table-cell__b {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.table-body {display: table-row-group;}

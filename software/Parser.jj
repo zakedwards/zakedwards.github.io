@@ -1,0 +1,321 @@
+/**
+ * A parser/lexer which, upon the input of some string S, returns 'YES' should S
+ * belong to some set L^{i} -- for all natural i -- and 'NO' otherwise, with an
+ * appropriate error message.
+ *  The *Conversion() methods translate S into a tag-free string, according to the
+ * specified conversion rules.
+ *
+ * @author:  Zak Edwards
+ * @version: 2.0 10/04/16
+ */
+
+
+/*options {
+  DEBUG_PARSER    = true;
+  DEBUG_LOOKAHEAD = true;
+}*/
+
+PARSER_BEGIN(Parser)
+
+  public class Parser {
+    /* Parser execution */
+    public static void main (String args[]) {
+      /* Parser initialisation */
+      Parser parser;
+      try {
+        String s = "";                       // Initialise a string that shall contain the complete translated input
+
+        parser = new Parser(System.in);
+        parser.Start(s);
+
+        System.out.println("YES");           // Input belongs to an accepted language set
+        //System.out.println(s);             // Print converted string
+      } catch(ParseException e) {
+        System.out.println("NO\n");          // Input does not belong to an accepted set
+
+        int size = e.tokenImage.length;
+        /**
+         * If the error concerns an odd blank-space sequence, print the appropriate message.
+         */
+        if ((e.currentToken.image == null) || (e.currentToken.next.kind == EOL)) {
+          if (e.tokenImage[size - 1] == "<BLANKS>") {
+            if ((e.currentToken.image == null) && (e.currentToken.next.kind == EOL)) {         // The input string is empty
+              System.err.println("At least one block must be present.");
+            } else if ((e.currentToken.image == null) && (e.currentToken.next.kind != EOL)) {  // Space at the beginning
+              System.err.println("No spaces are allowed before the first block.");
+            } else if ((e.currentToken.image != null) && (e.currentToken.next.kind == EOL)) {  // Space is at the end
+              System.err.println("No spaces are allowed after the last block.");
+            }
+          }
+        /**
+         * If the error concerns illegal blocks, or illegal content in the <2U>...</2U> or
+         * <2L>...</2L> tags, print the appropriate message.
+         */
+        } else {
+        /* A seperate condition is needed for odd spaces to avoid confusion with illegal blocks. */
+          if ((e.currentToken.kind == BLANKS) && (e.currentToken.next.kind == BLANKS)) {
+            if (e.tokenImage[size - 1] == "<BLANKS>") {                                       // Spaces are not odd
+                System.err.println("The number of spaces between blocks must be odd.");
+            }
+          } else {
+          System.err.println("Blocks in L^{2k + 1} must be either:\n"
+                             + "\t- an even-length sequence of uppercase letters;\n"
+                             + "\t- of the form <2U>...</2U>, where ... stands for any string from 2^{k}.\n"
+                           + "Blocks in L^{2k + 2} must be either:\n" 
+                             + "\t- an odd-length sequence of lowercase letters;\n"
+                             + "\t- of the form <2L>...</2L>, where ... stands for any string from 2^{k + 1}.");
+          }
+        }
+      } /*catch (TokenMgrError e) {
+        System.err.println("NO\n" + "An illegal character was encountered.");
+      }*/
+    }
+  }
+
+PARSER_END(Parser)
+
+
+/**
+ * LEXER SECTION
+ */
+/* --- Static tokens --- */
+TOKEN : {
+  < EOL : "\n" | "\r" | "\r\n" >  // Match any orthodox end-of-line characters
+
+| < #LOWERCASE : ["a"-"z"] >     // Match all lowercase characters
+| < #UPPERCASE : ["A"-"Z"] >     // Match all uppercase characters
+
+| < OPEN_UPPERCASE  : "<2U>"  >  // Match the string "<2U>"
+| < CLOSE_UPPERCASE : "</2U>" >  // Match the string "</2U>"
+
+| < OPEN_LOWERCASE  : "<2L>"  >  // Match the string "<2L>"
+| < CLOSE_LOWERCASE : "</2L>" >  // Match the string "</2L>"
+}
+
+/* --- Sequence-matching tokens --- */
+TOKEN : {
+  < EVEN_UPPERCASE : (<UPPERCASE><UPPERCASE>)+ >             // Match an even no. of uppercase characters (L^{2k+1})
+| < ODD_LOWERCASE  : <LOWERCASE>(<LOWERCASE><LOWERCASE>)* >  // Match an odd no. of lowercase characters (L^{2k+2})
+
+| < BLANKS : " "(" "" ")* >    // An odd number of blank spaces
+}
+
+/* Push lexical errors to grammar-level */
+<*> TOKEN : { < UNEXPECTED: ~[] > }
+
+
+/**
+ * PARSER SECTION
+ * Note: productions for L^{0-2} were removed as their function was subsumed
+ * by the recursive *Sequence() subroutines.
+ */
+String Start(String s) : {} {
+  /**
+   * Production for matching strings in L^{2k + 1: k >= 0}
+   */
+  //LOOKAHEAD(EvenSequence())
+  (
+    (
+      /* Call recursive production for odd orders of L */
+      OddSequence(s, false)
+    )
+    /**
+     * Production for matching strings in L^{2k + 2: k >= 0}
+     */
+  | (
+      /* Call recursive production for even orders of L */
+      EvenSequence(s, false)
+    )
+  )
+  { return s; }
+}
+
+
+/* --- Recursive functions for parsing the infinite union of L --- */
+String OddSequence(String s, boolean flag) : { Token block; String trans; } {
+  (
+    (
+      (<EVEN_UPPERCASE>)+
+      {
+          block = getToken(0);
+          trans = block.image;  // Define a string to manipulated
+          if (flag == true) {   // If flag is set to true, the parser is inside the <2L>...</2L> tags
+            /**
+             * Conversion:
+             *  Convert block to lowercase, delete first letter.
+             *  Return translate.
+             */
+            OddConversion(trans);
+          }
+          s = s + trans;        // Append translate to 'global' string
+      }
+      (
+        <BLANKS>
+        {
+          block = getToken(0);
+          trans = block.image;
+          s = s + trans;
+        }
+        (
+          (
+            <OPEN_UPPERCASE>
+              EvenSequence(s, true)  // Any string from L^{2k} (<2U>...</2U>)
+            <CLOSE_UPPERCASE>
+          )
+        | (
+            <EVEN_UPPERCASE>
+            {
+              block = getToken(0);
+              trans = block.image;
+              if (flag == true) {
+                /* Conversion */
+                OddConversion(trans);
+              }
+              s = s + trans;
+            }
+          )
+        )
+      )*
+    )
+  | (
+      (
+        <OPEN_UPPERCASE>
+          EvenSequence(s, true)
+        <CLOSE_UPPERCASE>
+      )+
+      (
+        <BLANKS>
+        {
+          block = getToken(0);
+          trans = block.image;
+          s = s + trans;
+        }
+        (
+          (
+            <OPEN_UPPERCASE>
+              EvenSequence(s, true)
+            <CLOSE_UPPERCASE>
+          )
+        | (
+            <EVEN_UPPERCASE>
+            {
+              block = getToken(0);
+              trans = block.image;
+              if (flag == true) {
+                /* Conversion */
+                OddConversion(trans);
+              }
+            s = s + trans;
+            }
+          )
+        )
+      )*
+    )
+  )
+  { return s; }
+}
+
+String EvenSequence(String s, boolean flag) : { Token block; String trans; } {
+  (
+    (
+      (<ODD_LOWERCASE>)+
+      {
+        block = getToken(0);
+        trans = block.image;    // Define a string to manipulated
+          if (flag == true) {   // If flag is set to true, the parser is inside the <2U>...</2U> tags
+            /**
+             * Conversion:
+             *  Convert block to uppercase, duplicate first letter.
+             *  Return translate.
+             */
+            EvenConversion(trans);
+          }
+        s = s + trans;
+      }
+      (
+        <BLANKS>
+        {
+          block = getToken(0);
+          trans = block.image;
+          s = s + trans;
+        }
+        (
+          (
+            <OPEN_LOWERCASE>
+              OddSequence(s, true)  // Any string from L^{2k + 1} (<2L>...<\2L>)
+            <CLOSE_LOWERCASE>
+          )
+        | (
+            <ODD_LOWERCASE>
+            {
+              block = getToken(0);
+              trans = block.image;
+              if (flag == true) {
+                /* Conversion */
+                EvenConversion(trans);
+              }
+              s = s + trans;
+            }
+          )
+        )
+      )*
+    )
+  | (
+      (
+        <OPEN_LOWERCASE>
+          OddSequence(s, true)
+        <CLOSE_LOWERCASE>
+      )+
+      (
+        <BLANKS>
+        {
+          block = getToken(0);
+          trans = block.image;
+          s = s + trans;
+        }
+        (
+          (
+            <OPEN_LOWERCASE>
+              OddSequence(s, true)
+            <CLOSE_LOWERCASE>
+          )
+        | (
+            <ODD_LOWERCASE>
+            {
+              block = getToken(0);
+              trans = block.image;
+              if (flag == true) {
+                /* Conversion */
+                EvenConversion(trans);
+              }
+              s = s + trans;
+            }
+          )
+        )
+      )*
+    )
+  )
+  { return s; }
+}
+
+/* --- Productions for converting the input string to a tag-free translation  --- */
+String OddConversion(String trans) : {} {
+  {
+    /* Convert string to lowercase */
+    trans = trans.toLowerCase();
+    /* Delete the first letter of the string */
+    trans = trans.substring(1);
+    return trans;
+  }
+}
+
+String EvenConversion(String trans) : {} {
+  {
+    /* Convert string to uppercase */
+    trans = trans.toUpperCase();
+    /* Duplicate the first letter of the string */
+    String prefix = trans.substring(0, 1);
+    trans = prefix + trans;
+    return trans;
+  }
+}
