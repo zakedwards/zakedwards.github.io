@@ -37,14 +37,14 @@
    DROP TABLE EXAM;
 
    CREATE TABLE EXAM
-          (Student_id          CHAR(5)            NOT NULL,   // Existence contingent on the referenced HISTORY(Module_code, Delivery_year) combination
+          (Student_id          CHAR(5)            NOT NULL,            // Existence contingent on the referenced HISTORY(Module_code, Delivery_year) combination
            Module_code         VARCHAR(6)         NOT NULL,
            Exam_year           SMALLINT           NOT NULL,
            Score               SMALLINT           NOT NULL,
-          PRIMARY KEY (Student_id, Module_code),                      // Ensure a module is taken only once
-          FOREIGN KEY (Student_id) REFERENCES STUDENT(Student_id),    // Ensure all exams are taken by extant students
+          PRIMARY KEY (Student_id, Module_code),                       // Ensure a module is taken only once
+          FOREIGN KEY (Student_id) REFERENCES STUDENT(Student_id),     // Ensure all exams are taken by extant students
           FOREIGN KEY (Module_code, Exam_year) REFERENCES HISTORY(Module_code, Delivery_year),
-          CHECK ((Score >= 0) AND (Score <= 100)) );          // Set constraints on available marks
+          CHECK ((Score >= 0) AND (Score <= 100)) );                   // Set constraints on available marks
 
    #
    DROP TABLE PREREQUISITES;
@@ -52,8 +52,8 @@
    CREATE TABLE PREREQUISITES
           (Module_code         VARCHAR(6)         NOT NULL,
            Prerequisite_code   VARCHAR(6)         NOT NULL,
-          PRIMARY KEY (Module_code, Prerequisite_code),              // Ensure prerequisites occur only once per module
-          FOREIGN KEY (Module_code) REFERENCES MODULE(Module_code),  // Prerequisites exist only for extant modules
+          PRIMARY KEY (Module_code, Prerequisite_code),                // Ensure prerequisites occur only once per module
+          FOREIGN KEY (Module_code) REFERENCES MODULE(Module_code),    // Prerequisites exist only for extant modules
           FOREIGN KEY (Prerequisite_code) REFERENCES MODULE(Module_code) );  // Prerequisite modules must exist
    #
 

@@ -145,7 +145,7 @@ public class UserStore implements IUserStore {
 
                           }
 
-                   public boolean addUserToStore(String key, User usr) {        // WAS void.
+                   public boolean addUserToStore(String key, User usr) {      // WAS void.
 
                           /* int hashed   = hash(key);
                           int location = (hashed % table.length);
@@ -372,7 +372,7 @@ public class UserStore implements IUserStore {
                           private Node next;
 
                                  public NodeData(Date whenJoined, User genUser, Node next) {
-                                        this.whenJoined = whenJoined;    // genUser.getDateJoined();
+                                        this.whenJoined = whenJoined;   // genUser.getDateJoined();
                                         this.genUser    = genUser;
                                         this.next       = next;
                                         }
@@ -381,11 +381,11 @@ public class UserStore implements IUserStore {
 
            /* -- Generic configuration for the BinaryTree -- */
 
-           private Node root;                                            // Declare the root of the BinaryTree.
-           private int size;                                             // Declare a variable to store the number of users paired with dates ('key-value pairs') in the BinaryTree.
-           private int height;                                           // Declare a variable to monitor the height of the BinaryTree.
-           private int c;                                                // Declare a variable to monitor the children per node.
-           private boolean altered;                                      // Declare a variable to monitor the state of the tree; i.e., monitor if a node has been *inserted*.
+           private Node root;                                           // Declare the root of the BinaryTree.
+           private int size;                                            // Declare a variable to store the number of users paired with dates ('key-value pairs') in the BinaryTree.
+           private int height;                                          // Declare a variable to monitor the height of the BinaryTree.
+           private int c;                                               // Declare a variable to monitor the children per node.
+           private boolean altered;                                     // Declare a variable to monitor the state of the tree; i.e., monitor if a node has been *inserted*.
 
                    /* Constructors, Getters and Setters */
 
@@ -625,7 +625,7 @@ public class UserStore implements IUserStore {
                            */
                           if  (height == 0) {
                                for (int j = 0; j < currentNode.childNo; j++) {
-                                    if ((ChildArray[j].genUser.getName()).contains(query)) {        // Return true if the username contains the given string.
+                                    if ((ChildArray[j].genUser.getName()).contains(query)) {       // Return true if the username contains the given string.
                                         duArray[c] = ChildArray[j].genUser;
                                         c++;
                                         }
