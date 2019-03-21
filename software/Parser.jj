@@ -54,7 +54,7 @@ PARSER_BEGIN(Parser)
         } else {
         /* A seperate condition is needed for odd spaces to avoid confusion with illegal blocks. */
           if ((e.currentToken.kind == BLANKS) && (e.currentToken.next.kind == BLANKS)) {
-            if (e.tokenImage[size - 1] == "<BLANKS>") {                                       // Spaces are not odd
+            if (e.tokenImage[size - 1] == "<BLANKS>") {                                        // Spaces are not odd
                 System.err.println("The number of spaces between blocks must be odd.");
             }
           } else {
@@ -82,14 +82,14 @@ PARSER_END(Parser)
 TOKEN : {
   < EOL : "\n" | "\r" | "\r\n" >  // Match any orthodox end-of-line characters
 
-| < #LOWERCASE : ["a"-"z"] >     // Match all lowercase characters
-| < #UPPERCASE : ["A"-"Z"] >     // Match all uppercase characters
+| < #LOWERCASE : ["a"-"z"] >      // Match all lowercase characters
+| < #UPPERCASE : ["A"-"Z"] >      // Match all uppercase characters
 
-| < OPEN_UPPERCASE  : "<2U>"  >  // Match the string "<2U>"
-| < CLOSE_UPPERCASE : "</2U>" >  // Match the string "</2U>"
+| < OPEN_UPPERCASE  : "<2U>"  >   // Match the string "<2U>"
+| < CLOSE_UPPERCASE : "</2U>" >   // Match the string "</2U>"
 
-| < OPEN_LOWERCASE  : "<2L>"  >  // Match the string "<2L>"
-| < CLOSE_LOWERCASE : "</2L>" >  // Match the string "</2L>"
+| < OPEN_LOWERCASE  : "<2L>"  >   // Match the string "<2L>"
+| < CLOSE_LOWERCASE : "</2L>" >   // Match the string "</2L>"
 }
 
 /* --- Sequence-matching tokens --- */
@@ -97,7 +97,7 @@ TOKEN : {
   < EVEN_UPPERCASE : (<UPPERCASE><UPPERCASE>)+ >             // Match an even no. of uppercase characters (L^{2k+1})
 | < ODD_LOWERCASE  : <LOWERCASE>(<LOWERCASE><LOWERCASE>)* >  // Match an odd no. of lowercase characters (L^{2k+2})
 
-| < BLANKS : " "(" "" ")* >    // An odd number of blank spaces
+| < BLANKS : " "(" "" ")* >       // An odd number of blank spaces
 }
 
 /* Push lexical errors to grammar-level */
@@ -221,8 +221,8 @@ String EvenSequence(String s, boolean flag) : { Token block; String trans; } {
       (<ODD_LOWERCASE>)+
       {
         block = getToken(0);
-        trans = block.image;    // Define a string to manipulated
-          if (flag == true) {   // If flag is set to true, the parser is inside the <2U>...</2U> tags
+        trans = block.image;        // Define a string to manipulated
+          if (flag == true) {       // If flag is set to true, the parser is inside the <2U>...</2U> tags
             /**
              * Conversion:
              *  Convert block to uppercase, duplicate first letter.

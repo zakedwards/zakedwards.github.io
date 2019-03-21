@@ -488,7 +488,7 @@ public class WeetStore implements IWeetStore {
                           private Node next;
 
                                  public NodeData(Date whenWeeted, Weet genWeet, Node next) {
-                                        this.whenWeeted = whenWeeted;    // genWeet.getDateWeeted();
+                                        this.whenWeeted = whenWeeted;   // genWeet.getDateWeeted();
                                         this.genWeet    = genWeet;
                                         this.next       = next;
                                         }
@@ -497,11 +497,11 @@ public class WeetStore implements IWeetStore {
 
            /* -- Generic configuration for the BinaryTree -- */
 
-           private Node root;                                            // Declare the root of the BinaryTree.
-           private int size;                                             // Declare a variable to store the number of weets paired with dates ('key-value pairs') in the BinaryTree.
-           private int height;                                           // Declare a variable to monitor the height of the BinaryTree.
-           private int c;                                                // Declare a variable to monitor the children per node.
-           private boolean altered;                                      // Declare a variable to monitor the state of the tree; i.e., monitor if a node has been *inserted*.
+           private Node root;                                           // Declare the root of the BinaryTree.
+           private int size;                                            // Declare a variable to store the number of weets paired with dates ('key-value pairs') in the BinaryTree.
+           private int height;                                          // Declare a variable to monitor the height of the BinaryTree.
+           private int c;                                               // Declare a variable to monitor the children per node.
+           private boolean altered;                                     // Declare a variable to monitor the state of the tree; i.e., monitor if a node has been *inserted*.
 
                    /* Constructors, Getters and Setters */
 
@@ -774,7 +774,7 @@ public class WeetStore implements IWeetStore {
                            */
                           if  (height == 0) {
                                for (int j = 0; j < currentNode.childNo; j++) {
-                                    if ((ChildArray[j].genWeet.getMessage()).contains(query)) {        // Return true if the weet contains the given string.
+                                    if ((ChildArray[j].genWeet.getMessage()).contains(query)) {    // Return true if the weet contains the given string.
                                         dwArray[c] = ChildArray[j].genWeet;
                                         c++;
                                         }

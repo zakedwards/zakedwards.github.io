@@ -189,10 +189,10 @@ private class FollowerTree  {
 
            /* -- Generic configuration for the BinaryTree -- */
 
-           private Node root;                                            // Declare the root of the BinaryTree.
-           private int size;                                             // Declare a variable to store the number of users associated with followers and follows in the BinaryTree.
-           private int height;                                           // Declare a variable to monitor the height of the BinaryTree.
-           private int c;                                                // Declare a variable to monitor the children per node.
+           private Node root;                                           // Declare the root of the BinaryTree.
+           private int size;                                            // Declare a variable to store the number of users associated with followers and follows in the BinaryTree.
+           private int height;                                          // Declare a variable to monitor the height of the BinaryTree.
+           private int c;                                               // Declare a variable to monitor the children per node.
            private Follow[] TopUsers;
 
                    /* Constructors, Getters and Setters */
@@ -422,7 +422,7 @@ private class FollowerTree  {
                                insertPair(key);
                               }
 
-                          DateTree follows = getFollows(key);                            // Declare a DateTree within which to store follows.
+                          DateTree follows = getFollows(key);           // Declare a DateTree within which to store follows.
 
                           /**
                            * If the follow exists in the User's tree,
@@ -723,7 +723,7 @@ private class FollowerTree  {
                           private Node next;
 
                                  public NodeData(Date whenJoined, FollowPair genUser, Node next) {
-                                        this.whenJoined = whenJoined;    // genUser.getDateJoined();
+                                        this.whenJoined = whenJoined;   // genUser.getDateJoined();
                                         this.genUser = genUser;
                                         this.next = next;
                                         }
@@ -732,10 +732,10 @@ private class FollowerTree  {
 
            /* -- Generic configuration for the BinaryTree -- */
 
-           private Node root;                                            // Declare the root of the BinaryTree.
-           private int size;                                             // Declare a variable to store the number of users paired with dates ('key-value pairs') in the BinaryTree.
-           private int height;                                           // Declare a variable to monitor the height of the BinaryTree.
-           private int c;                                                // Declare a variable to monitor the children per node.
+           private Node root;                                           // Declare the root of the BinaryTree.
+           private int size;                                            // Declare a variable to store the number of users paired with dates ('key-value pairs') in the BinaryTree.
+           private int height;                                          // Declare a variable to monitor the height of the BinaryTree.
+           private int c;                                               // Declare a variable to monitor the children per node.
            private FollowPair Temp;
 
                    /* Constructors, Getters and Setters */

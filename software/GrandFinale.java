@@ -44,12 +44,10 @@ public class GrandFinale {
 
                   penStack.push(robot.getHeading());
               }
-        else {                                                     // If the stack is not empty, remove and return the top element
+        else {                                                // If the stack is not empty, remove and return the top element
               if (!penStack.isEmpty())
                    penStack.pop();
                    }
-
-                   /* Print the stack route to console */
 
                    String headings = ("\n"+penStack);
 
@@ -189,11 +187,7 @@ public class GrandFinale {
                  if (countExits(robot, IRobot.PASSAGE).size() == 0) {     // If there are no passage exits
                      do {
 
-                         /* Select a random number with equal probability */
-
                          randno = (int) (Math.random()*(3));
-
-                         /* Convert this to a direction */
 
                              if (randno == 1)
                                direction = IRobot.AHEAD;
@@ -211,11 +205,7 @@ public class GrandFinale {
                      do {
                           do {
 
-                              /* Select a random number with equal probability */
-
                               randno = (int) (Math.random()*(3));
-
-                              /* Convert this to a direction */
 
                                   if (randno == 1)
                                     direction = IRobot.AHEAD;
