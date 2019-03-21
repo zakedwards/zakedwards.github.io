@@ -3,7 +3,7 @@ html, body {height: 100%;}
 body {
     margin: 0px;
     padding: 0px;
-    background: #ae3136;
+    background: #671900;
     font-family: 'CMUSerifRoman';
     font-size: 11pt;
     font-weight: 300;
@@ -43,7 +43,7 @@ st {
 
 pad {padding-left: 20px;}
 
-a {color: #ae3136;}
+a {color: #671900;}
 
 a:hover {text-decoration: none;}
 
@@ -78,6 +78,7 @@ a[href$=".pdf"]:after {
 .title h2 {
     font-weight: 400;
     font-size: 2.8em;
+    letter-spacing: 0.0625em;
     color: #323232;
     text-transform: uppercase;
 }
@@ -101,9 +102,10 @@ a[href$=".pdf"]:after {
 
 #logo h1 {
     display: inline-block;
-    font-size: 3.5em;
+    font-size: 3em;
     font-variant: small-caps;
-    color: #ae3136;
+    letter-spacing: 0.0625em;
+    color: #671900;
     padding-right: 0.50em;
     border-right: 1px solid rgba(0,0,0,.1);
 }
@@ -118,7 +120,7 @@ a[href$=".pdf"]:after {
 
 #logo a {
     text-decoration: none;
-    color: #ae3136;
+    color: #671900;
 }
 
 
@@ -157,7 +159,7 @@ a[href$=".pdf"]:after {
 #menu .current_page_item a:after {
     content: '';
     height: 3px;
-    background: #ae3136; 
+    background: #671900; 
     display:block;
 }
 
@@ -190,7 +192,7 @@ a[href$=".pdf"]:after {
 .margin-btm {
     overflow: hidden;
     margin-bottom: 5em;
-    padding-bottom: 5em;
+    padding-bottom: 3em;
     border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
@@ -198,7 +200,7 @@ a[href$=".pdf"]:after {
 
 .extra2 .button {margin-top: 2em;}
 
-.extra2 .title h2 {font-size: 1.5em;}
+.extra2 .title h2 {font-size: 1.35em;}
 
 .extra2 .title .byline {font-size: 0.80em;}
 
