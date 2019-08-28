@@ -1,0 +1,7 @@
+@unpublished{edwards:2015,
+  author = {Edwards, Z. and Mason, C.}, 
+  title  = {Programmatically Generating 3D Models in C},
+  month  = 5,
+  year   = 2015,
+  note   = {Published at https://zakedwards.github.io.}
+}

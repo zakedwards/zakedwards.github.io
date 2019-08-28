@@ -1,0 +1,7 @@
+@unpublished{edwards:2016,
+  author = {Zak Edwards}, 
+  title  = {An Optimised Genetic Algorithm for Competitive Robocode Agents},
+  month  = 5,
+  year   = 2016,
+  note   = {Published at https://zakedwards.github.io.}
+}
