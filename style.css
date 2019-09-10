@@ -98,22 +98,6 @@ table {
 .text ol ol ul {
     list-style-type: square;
 }
-.text ul[dir="rtl"],
-.text ol[dir="rtl"] {
-    padding-left: 0;
-    padding-right: 1.3em;
-    margin-left: 0;
-    margin-right: 0.5em;
-}
-.text ul[dir="rtl"] ul,
-.text ul[dir="rtl"] ol,
-.text ol[dir="rtl"] ul,
-.text ol[dir="rtl"] ol {
-    padding-left: 0;
-    padding-right: 1.3em;
-    margin-left: 0;
-    margin-right: 0.5em;
-}
 .text p {
     margin: 0;
     line-height: normal;
@@ -276,23 +260,15 @@ table {
 .style-b-item: last-child {
     border-bottom: 0;
 }
-/*.style-j95cooa4_item.style-j95cooa4_hover:not(.style-j95cooa4_noLink) > .style-j95cooa4_label {
-  color: #970000;
-}
-.style-j95cooa4_item.style-j95cooa4_hover > .style-j95cooa4_subMenu {
-    opacity: 1;
-    transition: all 0.4s ease 0s;
-    display: block;
-}*/
-.style-b-item.style-b-selected > .style-b-label {
-    color:#000000;
-}
 .style-b-label {
     font: italic normal normal 15px/1.4em 'times new roman', times, serif;
     color: #000000;
     display: inline;
     white-space: nowrap;
     overflow: hidden;
+}
+.style-b-label:hover {
+    color: #970000;
 }
 .style-b-submenu {
     z-index: 999;
@@ -396,6 +372,12 @@ table {
     bottom: 0;
     left: 0;
 }
+.docs {
+    color: #666666;
+}
+.docs:hover {
+    color: #970000;
+}
 #site-root img:not([src]) {
     visibility: hidden;
 }
@@ -413,9 +395,6 @@ table {
     width: 100%;
     position: relative;
 }
-#site-footer-content-wrapper {
-    pointer-events: none;
-}
 #site-footer-content-container {
     position: static;
     display: grid;
@@ -426,12 +405,6 @@ table {
     grid-template-columns: 100%;
 }
 #site-footer-content-container > * {
-    pointer-events: auto;
-}
-#site-footer-content-container > [id$="-rotated-wrapper"] {
-    pointer-events: none;
-}
-#site-footer-content-container > [id$="-rotated-wrapper"] > * {
     pointer-events: auto;
 }
 #page-main.mesh-layout #page-container,
@@ -493,9 +466,6 @@ table {
     width: 100%;
     position: relative;
 }
-#subpage-content-wrapper {
-    pointer-events: none;
-}
 #subpage-content-container {
     position: static;
     display: grid;
@@ -521,12 +491,6 @@ table {
 #subpage-content-container > * {
     pointer-events: auto;
 }
-#subpage-content-container > [id$="-rotated-wrapper"] {
-    pointer-events: none;
-}
-#subpage-content-container > [id$="-rotated-wrapper"] > * {
-    pointer-events: auto;
-}
 #subpre-page {
     justify-self: start;
     align-self: start;
@@ -534,8 +498,10 @@ table {
     grid-area: 2 / 1 / 3 / 2;
     pointer-events: auto;
 }
-#subpre-page-content-wrapper {
-    pointer-events: none;
+#subpre-page-content {
+    height: auto;
+    width: 565px;
+    position: relative;
 }
 #subpre-page-content-container {
     position: static;
@@ -547,12 +513,6 @@ table {
     grid-template-columns: 100%;
 }
 #subpre-page-content-container > * {
-    pointer-events: auto;
-}
-#subpre-page-content-container > [id$="-rotated-wrapper"] {
-    pointer-events: none;
-}
-#subpre-page-content-container > [id$="-rotated-wrapper"] > * {
     pointer-events: auto;
 }
 #comp-anim {
@@ -582,6 +542,7 @@ table {
 }
 #comp-link {
     position: relative;
+    display:inline;
     margin: 0px 0px 20px 0;
     left: 55px;
     grid-area: 3 / 1 / 4 / 2;
@@ -636,7 +597,7 @@ table {
     justify-self: stretch;
     valign-self: start;
 }
-#comp-acad2 {
+#acad {
     position: relative;
     margin: 0px 0 45px 0;
     left: 0;
@@ -740,7 +701,7 @@ table {
     justify-self: stretch;
     align-self: start;
 }
-#comp-soft2 {
+#soft {
     position: relative;
     margin: 0px 0 46px 0;
     left: 0;
@@ -868,7 +829,7 @@ table {
     justify-self: stretch;
     align-self: start;
 }
-#comp-educ2 {
+#educ {
     position: relative;
     margin: 0px 0 46px 0;
     left: 0;
@@ -972,7 +933,7 @@ table {
     justify-self: stretch;
     align-self: start;
 }
-#comp-tech2 {
+#tech {
     position: relative;
     margin: 0px 0 45px 0;
     left: 0;
@@ -1052,7 +1013,7 @@ table {
     justify-self: stretch;
     align-self: start;
 }
-#comp-work2 {
+#work {
     position: relative;
     margin: 0px 0 45px 0;
     left: 0;
@@ -1156,7 +1117,7 @@ table {
     justify-self: stretch;
     align-self: start;
 }
-#comp-info2 {
+#info {
     position: relative;
     margin: 0px 0 45px 0;
     left: 0;
