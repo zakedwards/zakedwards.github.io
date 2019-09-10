@@ -1,10 +1,7 @@
-a, b, big, body, button, center, code,
-dd, div, dt, em, font, footer, form,
-h1, h2, h3, h4, h5, h6, header, html,
-i, img, label, li, nav, object, ol,
-p, pre, q, s, section, span, sub, sup,
-table, td, th, title, tr, tt, u, ul,
-var {
+a, b, body, button, code, div, em, footer,
+h1, h2, h3, h4, header, html, i, img, label,
+li, nav, object, ol, p, section, span, sub,
+sup, table, td, th, title, tr, tt, ul, var {
     margin: 0;
     padding: 0;
     border: 0;
@@ -18,17 +15,12 @@ a {
 }
 body {
     font-size: 10px;
-    font-family: Arial, Helvetica, sans-serif;
     overflow-x: auto;
     overflow-y: scroll;
 }
-body.prewarmup #site-root {
+body #site-root {
     overflow-x: hidden;
     overflow-y: hidden;
-}
-body[contenteditable] {
-    overflow-x: auto;
-    overflow-y: auto;
 }
 body, html {
     height: 100%;
@@ -47,9 +39,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-:focus {
-    outline: 0;
-}
 .site-root {
     min-height: 100%;
     position: relative;
@@ -61,9 +50,6 @@ table {
 .text {
     word-wrap: break-word;
     text-align: start;
-}
-.text > * {
-    pointer-events: auto;
 }
 .text li {
     font-style: inherit;
@@ -119,16 +105,6 @@ table {
     letter-spacing: normal;
 }
 .text h4 {
-    margin: 0;
-    line-height: normal;
-    letter-spacing: normal;
-}
-.text h5 {
-    margin: 0;
-    line-height: normal;
-    letter-spacing: normal;
-}
-.text h6 {
     margin: 0;
     line-height: normal;
     letter-spacing: normal;
@@ -227,6 +203,19 @@ table {
     bottom: 0;
     left: 0;
 }
+.style-b[data-state~="items-align-left"] .style-b-item {
+    text-align: left;
+}
+.style-b[data-state~="subitems-align-left"] .style-b-submenu > .style-b-item {
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.style-b[data-state~="submenu-open-right"] .style-b-submenu {
+    left: 100%;
+    float: left;
+    margin-left: 0px;
+}
 .style-b > ul {
     display: table;
     width: 100%;
@@ -244,9 +233,25 @@ table {
     padding: 0;
     margin: 0;
     position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
 }
 .style-b-menu .style-b-empty-submenu {
     display: none !important;
+}
+.style-b-submenu {
+    z-index: 999;
+    min-width: 100%;
+    opacity: 0;
+    display: none;
+    position: absolute;
+    transition: all 0.4s ease 0s;
+    background-color: rgba(255, 255, 255, 1);
 }
 .style-b-item {
     padding-left: 0px;
@@ -269,77 +274,6 @@ table {
 }
 .style-b-label:hover {
     color: #970000;
-}
-.style-b-submenu {
-    z-index: 999;
-    min-width: 100%;
-    opacity: 0;
-    display: none;
-    position: absolute;
-    transition: all 0.4s ease 0s;
-    background-color: rgba(255, 255, 255, 1);
-}
-.style-b-submenu .style-b-label {
-    font: normal normal normal 14px/1.4em helvetica-w01-light, helvetica-w02-light, sans-serif;
-}
-.style-b-submenu:before {
-    content: " ";
-    display: block;
-    width: 0px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-}
-.style-b[data-state~="items-align-left"] .style-b-item {
-    text-align: left;
-}
-.style-b[data-state~="items-align-center"] .style-b-item {
-    text-align: center;
-}
-.style-b[data-state~="items-align-right"] .style-b-item {
-    text-align: right;
-}
-.style-b[data-state~="subitems-align-left"] .style-b-submenu > .style-b-item {
-    text-align: left;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.style-b[data-state~="subitems-align-center"] .style-b-submenu > .style-b-item {
-    text-align: center;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.style-b[data-state~="submenu-open-left"] .style-b-submenu {
-    right: 100%;
-    float: right;
-    margin-right: 0px;
-}
-.style-b[data-state~="submenu-open-left"] .style-b-submenu:before {
-    right :0;
-    margin-right: calc(-1 * 0px);
-}
-.style-b[data-state~="subitems-align-right"] .style-b-submenu > .style-b-item {
-    text-align: right;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.style-b[data-state~="submenu-open-right"] .style-b-submenu {
-    left: 100%;
-    float: left;
-    margin-left: 0px;
-}
-.style-b[data-state~="submenu-open-right"] .style-b-submenu:before {
-    left:0;
-    margin-left: calc(-1 * 0px);
-}
-.style-b-menu {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
 }
 .style-c[data-state~="mobile-view"] {
     left: 10px;
@@ -378,16 +312,9 @@ table {
 .docs:hover {
     color: #970000;
 }
-#site-root img:not([src]) {
-    visibility: hidden;
-}
-#site-root svg img:not([src]) {
-    visibility: visible;
-}
 #site-header-content {
     height: 28px;
     width: 100%;
-    min-height: ;
     position: relative;
 }
 #site-footer-content {
@@ -404,13 +331,9 @@ table {
     grid-template-rows: min-content 1fr;
     grid-template-columns: 100%;
 }
-#site-footer-content-container > * {
-    pointer-events: auto;
-}
 #page-main.mesh-layout #page-container,
 #page-main.mesh-layout #site-footer,
-#page-main.mesh-layout #site-header,
-#page-main.mesh-layout #page-maininlineContent {
+#page-main.mesh-layout #site-header {
     position: relative;
 }
 #page-main.mesh-layout[data-mesh-layout=grid] {
@@ -458,9 +381,6 @@ table {
     -ms-grid-row: 4;
     grid-area: 4/1/5/2;
 }
-#page-main.mesh-layout.desktop>* {
-    width: 100%;
-}
 #subpage-content {
     height: auto;
     width: 100%;
@@ -488,9 +408,6 @@ table {
     padding-bottom: 0px;
     box-sizing: border-box;
 }
-#subpage-content-container > * {
-    pointer-events: auto;
-}
 #subpre-page {
     justify-self: start;
     align-self: start;
@@ -511,9 +428,6 @@ table {
     min-height: 2203px;
     grid-template-rows: min-content min-content min-content 1fr;
     grid-template-columns: 100%;
-}
-#subpre-page-content-container > * {
-    pointer-events: auto;
 }
 #comp-anim {
     justify-self: start;
@@ -568,24 +482,8 @@ table {
 #comp-para {
     position: relative;
     margin: 11px 0px 58px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 1 / 1 / 2 / 2;
-    justify-self: start;
-    align-self: start;
-}
-#comp-foot1 {
-    position: relative;
-    margin: 0px 0 8px 0;
-    left: 0;
-    grid-area: 1 / 1 / 2 / 2;
-    justify-self: stretch;
-    align-self: start;
-}
-#comp-foot2 {
-    position: relative;
-    margin: 0px 0px 27px calc((100% - 980px) * 0.5);
-    left: 592px;
-    grid-area: 2 / 1 / 3 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -624,7 +522,7 @@ table {
 #comp-acad5 {
     position: relative;
     margin: 0px 0px 8px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 5 / 1 / 6 / 2;
     justify-self: start;
     align-self: start;
@@ -632,7 +530,7 @@ table {
 #comp-acad6 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 6 / 1 / 7 / 2;
     justify-self: start;
     align-self: start;
@@ -640,7 +538,7 @@ table {
 #comp-acad7 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 7 / 1 / 8 / 2;
     justify-self: start;
     align-self: start;
@@ -648,7 +546,7 @@ table {
 #comp-acad8 {
     position: relative;
     margin: 0px 0px 8px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 8 / 1 / 9 / 2;
     justify-self: start;
     align-self: start;
@@ -656,7 +554,7 @@ table {
 #comp-acad9 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 9 / 1 / 10 / 2;
     justify-self: start;
     align-self: start;
@@ -664,7 +562,7 @@ table {
 #comp-acad10 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 10 / 1 / 11 / 2;
     justify-self: start;
     align-self: start;
@@ -672,7 +570,7 @@ table {
 #comp-acad11 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 11 / 1 / 12 / 2;
     justify-self: start;
     align-self: start;
@@ -680,7 +578,7 @@ table {
 #comp-acad12 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 12 / 1 / 13 / 2;
     justify-self: start;
     align-self: start;
@@ -688,7 +586,7 @@ table {
 #comp-acad13 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 13 / 1 / 14 / 2;
     justify-self: start;
     align-self: start;
@@ -728,7 +626,7 @@ table {
 #comp-soft5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 19 / 1 / 20 / 2;
     justify-self: start;
     align-self: start;
@@ -736,7 +634,7 @@ table {
 #comp-soft6 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 20 / 1 / 21 / 2;
     justify-self: start;
     align-self: start;
@@ -744,7 +642,7 @@ table {
 #comp-soft7 {
     position: relative;
     margin: 0px 0px 8px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 22 / 1 / 23 / 2;
     justify-self: start;
     align-self: start;
@@ -752,7 +650,7 @@ table {
 #comp-soft8 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 23 / 1 / 24 / 2;
     justify-self: start;
     align-self: start;
@@ -760,7 +658,7 @@ table {
 #comp-soft9 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 25 / 1 / 26 / 2;
     justify-self: start;
     align-self: start;
@@ -768,7 +666,7 @@ table {
 #comp-soft10 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 26 / 1 / 27 / 2;
     justify-self: start;
     align-self: start;
@@ -776,7 +674,7 @@ table {
 #comp-soft11 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 28 / 1 / 29 / 2;
     justify-self: start;
     align-self: start;
@@ -784,7 +682,7 @@ table {
 #comp-soft12 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 29 / 1 / 30 / 2;
     justify-self: start;
     align-self: start;
@@ -792,7 +690,7 @@ table {
 #comp-soft13 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 31 / 1 / 32 / 2;
     justify-self: start;
     align-self: start;
@@ -800,7 +698,7 @@ table {
 #comp-soft14 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 32 / 1 / 33 / 2;
     justify-self: start;
     align-self: start;
@@ -808,7 +706,7 @@ table {
 #comp-soft15 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 35 / 1 / 36 / 2;
     justify-self: start;
     align-self: start;
@@ -816,7 +714,7 @@ table {
 #comp-soft16 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 36 / 1 / 37 / 2;
     justify-self: start;
     align-self: start;
@@ -856,7 +754,7 @@ table {
 #comp-educ5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 41 / 1 / 42 / 2;
     justify-self: start;
     align-self: start;
@@ -864,7 +762,7 @@ table {
 #comp-educ6 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 42 / 1 / 43 / 2;
     justify-self: start;
     align-self: start;
@@ -872,7 +770,7 @@ table {
 #comp-educ7 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 43 / 1 / 44 / 2;
     justify-self: start;
     align-self: start;
@@ -880,7 +778,7 @@ table {
 #comp-educ8 {
     position: relative;
     margin: 0px 0px 8px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 44 / 1 / 45 / 2;
     justify-self: start;
     align-self: start;
@@ -888,7 +786,7 @@ table {
 #comp-educ9 {
     position: relative;
     margin: 0px 0px 8px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 45 / 1 / 46 / 2;
     justify-self: start;
     align-self: start;
@@ -896,7 +794,7 @@ table {
 #comp-educ10 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 46 / 1 / 47 / 2;
     justify-self: start;
     align-self: start;
@@ -904,7 +802,7 @@ table {
 #comp-educ11 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 47 / 1 / 48 / 2;
     justify-self: start;
     align-self: start;
@@ -912,7 +810,7 @@ table {
 #comp-educ12 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 48 / 1 / 49 / 2;
     justify-self: start;
     align-self: start;
@@ -920,7 +818,7 @@ table {
 #comp-educ13 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 52 / 1 / 53 / 2;
     justify-self: start;
     align-self: start;
@@ -960,7 +858,7 @@ table {
 #comp-tech5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 58 / 1 / 59 / 2;
     justify-self: start;
     align-self: start;
@@ -968,7 +866,7 @@ table {
 #comp-tech6 {
     position: relative;
     margin: -10px 0px 18px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 59 / 1 / 60 / 2;
     justify-self: start;
     align-self: start;
@@ -976,7 +874,7 @@ table {
 #comp-tech7 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 61 / 1 / 62 / 2;
     justify-self: start;
     align-self: start;
@@ -984,7 +882,7 @@ table {
 #comp-tech8 {
     position: relative;
     margin: -10px 0px 18px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 62 / 1 / 63 / 2;
     justify-self: start;
     align-self: start;
@@ -992,7 +890,7 @@ table {
 #comp-tech9 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 64 / 1 / 65 / 2;
     justify-self: start;
     align-self: start;
@@ -1000,7 +898,7 @@ table {
 #comp-tech10 {
     position: relative;
     margin: -10px 0px 0px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 65 / 1 / 66 / 2;
     justify-self: start;
     align-self: start;
@@ -1040,7 +938,7 @@ table {
 #comp-work5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 70 / 1 / 71 / 2;
     justify-self: start;
     align-self: start;
@@ -1048,7 +946,7 @@ table {
 #comp-work6 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 71 / 1 / 72 / 2;
     justify-self: start;
     align-self: start;
@@ -1056,7 +954,7 @@ table {
 #comp-work7 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 72 / 1 / 73 / 2;
     justify-self: start;
     align-self: start;
@@ -1064,7 +962,7 @@ table {
 #comp-work8 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 73 / 1 / 74 / 2;
     justify-self: start;
     align-self: start;
@@ -1072,7 +970,7 @@ table {
 #comp-work9 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 74 / 1 / 75 / 2;
     justify-self: start;
     align-self: start;
@@ -1080,7 +978,7 @@ table {
 #comp-work10 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 75 / 1 / 76 / 2;
     justify-self: start;
     align-self: start;
@@ -1088,7 +986,7 @@ table {
 #comp-work11 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 76 / 1 / 77 / 2;
     justify-self: start;
     align-self: start;
@@ -1096,7 +994,7 @@ table {
 #comp-work12 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 77 / 1 / 78 / 2;
     justify-self: start;
     align-self: start;
@@ -1104,7 +1002,7 @@ table {
 #comp-work13 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 78 / 1 / 79 / 2;
     justify-self: start;
     align-self: start;
@@ -1144,7 +1042,7 @@ table {
 #comp-info5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 83 / 1 / 84 / 2;
     justify-self: start;
     align-self: start;
@@ -1152,7 +1050,7 @@ table {
 #comp-info6 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 84 / 1 / 85 / 2;
     justify-self: start;
     align-self: start;
@@ -1160,7 +1058,7 @@ table {
 #comp-info7 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 85 / 1 / 86 / 2;
     justify-self: start;
     align-self: start;
@@ -1168,7 +1066,7 @@ table {
 #comp-info8 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 86 / 1 / 87 / 2;
     justify-self: start;
     align-self: start;
@@ -1176,7 +1074,7 @@ table {
 #comp-info9 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 87 / 1 / 88 / 2;
     justify-self: start;
     align-self: start;
@@ -1184,7 +1082,7 @@ table {
 #comp-info10 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 88 / 1 / 89 / 2;
     justify-self: start;
     align-self: start;
@@ -1192,7 +1090,7 @@ table {
 #comp-info11 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 89 / 1 / 90 / 2;
     justify-self: start;
     align-self: start;
@@ -1200,7 +1098,7 @@ table {
 #comp-info12 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 597px;
+    left: 600px;
     grid-area: 90 / 1 / 91 / 2;
     justify-self: start;
     align-self: start;
@@ -1209,7 +1107,7 @@ table {
     position: relative;
     margin: 0px 0px 0 calc((100% - 980px) * 0.5);
     margin-bottom: 70px;
-    left: 597px;
+    left: 600px;
     grid-area: 91 / 1 / 92 / 2;
     justify-self: start;
     align-self: start;
@@ -1219,8 +1117,24 @@ table {
     position: relative;
     margin: 0px 0px 0 calc((100% - 980px) * 0.5);
     margin-bottom: 70px;
-    left: 597px;
+    left: 600px;
     grid-area: 92 / 1 / 93 / 2;
+    justify-self: start;
+    align-self: start;
+}
+#comp-foot1 {
+    position: relative;
+    margin: 0px 0 8px 0;
+    left: 0;
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+#comp-foot2 {
+    position: relative;
+    margin: 0px 0px 27px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 2 / 1 / 3 / 2;
     justify-self: start;
     align-self: start;
 }
