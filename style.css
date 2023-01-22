@@ -13,6 +13,22 @@ a {
     cursor: pointer;
     text-decoration: none;
 }
+
+
+.icon {
+    color: #555555;
+}
+.icon .fa-github-square:hover  {
+    color: black;
+}
+.icon .fa-google-plus-square:hover  {
+    color: black;
+}
+.icon .fa-linkedin-square:hover  {
+    color: black;
+}
+
+
 body {
     font-size: 10px;
     overflow-x: auto;
@@ -46,6 +62,9 @@ table {
 }
 .email {
     color: inherit;
+}
+.email:hover {
+    color: black;
 }
 .text {
     word-wrap: break-word;
@@ -139,7 +158,7 @@ table {
     border: 0;
 }
 .tg .tg-cell1 {
-    font-family: 'times new roman', times, serif;
+    font-family: 'CMUSerifRoman', times, serif;
     font-size: 16px/1.4em;
     text-align: left;
     vertical-align: middle;
@@ -231,7 +250,7 @@ table {
 }
 .style-b-menu {
     padding: 0;
-    margin: 0;
+    margin: 10px 0px 0px 0px;
     position: relative;
     display: -webkit-box;
     display: -webkit-flex;
@@ -266,14 +285,14 @@ table {
     border-bottom: 0;
 }
 .style-b-label {
-    font: italic normal normal 15px/1.4em 'times new roman', times, serif;
+    font: italic normal normal 16px/1.4em 'CMUSerifExtraRomanSlanted', times, serif;
     color: #000000;
     display: inline;
     white-space: nowrap;
     overflow: hidden;
 }
 .style-b-label:hover {
-    color: #970000;
+    color: #185096;
 }
 .style-c[data-state~="mobile-view"] {
     left: 10px;
@@ -310,7 +329,7 @@ table {
     color: #666666;
 }
 .docs:hover {
-    color: #970000;
+    color: #185096;
 }
 #site-header-content {
     height: 28px;
@@ -448,7 +467,7 @@ table {
 }
 #comp-desc {
     position: relative;
-    margin: 0px 0px 20px 0;
+    margin: 10px 0px 30px 0;
     left: 54px;
     grid-area: 2 / 1 / 3 / 2;
     justify-self: start;
@@ -719,7 +738,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ1 {
+#comp-empl1 {
     position: relative;
     margin: 0px 0 30px 0;
     left: 0;
@@ -727,7 +746,7 @@ table {
     justify-self: stretch;
     align-self: start;
 }
-#educ {
+#empl {
     position: relative;
     margin: 0px 0 46px 0;
     left: 0;
@@ -735,7 +754,7 @@ table {
     justify-self: stretch;
     align-self: start;
 }
-#comp-educ3 {
+#comp-empl3 {
     position: relative;
     margin: 0px 0px 0 calc((100% - 980px) * 0.5);
     left: 568px;
@@ -743,7 +762,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ4 {
+#comp-empl4 {
     position: relative;
     margin: 0px 0px 33px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -751,7 +770,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ5 {
+#comp-empl5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -759,7 +778,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ6 {
+#comp-empl6 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -767,7 +786,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ7 {
+#comp-empl7 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -775,7 +794,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ8 {
+#comp-empl8 {
     position: relative;
     margin: 0px 0px 8px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -783,7 +802,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ9 {
+#comp-empl9 {
     position: relative;
     margin: 0px 0px 8px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -791,7 +810,7 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ10 {
+#comp-empl10 {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -799,23 +818,47 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-educ11 {
+#comp-educ1 {
     position: relative;
-    margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 600px;
+    margin: 0px 0 30px 0;
+    left: 0;
     grid-area: 47 / 1 / 48 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+#educ {
+    position: relative;
+    margin: 0px 0 46px 0;
+    left: 0;
+    grid-area: 48 / 1 / 49 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+#comp-educ3 {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 568px;
+    grid-area: 49 / 1 / 50 / 2;
     justify-self: start;
     align-self: start;
 }
-#comp-educ12 {
+#comp-educ4 {
+    position: relative;
+    margin: 0px 0px 33px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 50 / 1 / 51 / 2;
+    justify-self: start;
+    align-self: start;
+}
+#comp-educ5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 48 / 1 / 49 / 2;
+    grid-area: 51 / 1 / 52 / 2;
     justify-self: start;
     align-self: start;
 }
-#comp-educ13 {
+#comp-educ6 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -823,39 +866,47 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-tech1 {
+#comp-educ7 {
     position: relative;
-    margin: 0px 0 29px 0;
-    left: 0;
+    margin: 0px 0px 28px calc((100% - 980px) * 0.5);
+    left: 600px;
     grid-area: 53 / 1 / 54 / 2;
-    justify-self: stretch;
+    justify-self: start;
     align-self: start;
 }
-#tech {
+#comp-educ8 {
     position: relative;
-    margin: 0px 0 45px 0;
-    left: 0;
+    margin: 0px 0px 8px calc((100% - 980px) * 0.5);
+    left: 600px;
     grid-area: 54 / 1 / 55 / 2;
-    justify-self: stretch;
+    justify-self: start;
     align-self: start;
 }
-#comp-tech3 {
+#comp-educ9 {
     position: relative;
-    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
-    left: 568px;
+    margin: 0px 0px 8px calc((100% - 980px) * 0.5);
+    left: 600px;
     grid-area: 55 / 1 / 56 / 2;
     justify-self: start;
     align-self: start;
 }
-#comp-tech4 {
+#comp-educ10 {
     position: relative;
-    margin: 0px 0px 34px calc((100% - 980px) * 0.5);
+    margin: 0px 0px 28px calc((100% - 980px) * 0.5);
     left: 600px;
     grid-area: 56 / 1 / 57 / 2;
     justify-self: start;
     align-self: start;
 }
-#comp-tech5 {
+#comp-educ11 {
+    position: relative;
+    margin: 0px 0px 9px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 57 / 1 / 58 / 2;
+    justify-self: start;
+    align-self: start;
+}
+#comp-educ12 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -863,31 +914,47 @@ table {
     justify-self: start;
     align-self: start;
 }
-#comp-tech6 {
+#comp-educ13 {
     position: relative;
-    margin: -10px 0px 18px calc((100% - 980px) * 0.5);
+    margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
     grid-area: 59 / 1 / 60 / 2;
     justify-self: start;
     align-self: start;
 }
-#comp-tech7 {
+#comp-tech1 {
     position: relative;
-    margin: 0px 0px 9px calc((100% - 980px) * 0.5);
-    left: 600px;
-    grid-area: 61 / 1 / 62 / 2;
-    justify-self: start;
+    margin: 0px 0 29px 0;
+    left: 0;
+    grid-area: 60 / 1 / 61 / 2;
+    justify-self: stretch;
     align-self: start;
 }
-#comp-tech8 {
+#tech {
     position: relative;
-    margin: -10px 0px 18px calc((100% - 980px) * 0.5);
-    left: 600px;
+    margin: 0px 0 45px 0;
+    left: 0;
+    grid-area: 61 / 1 / 62 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+#comp-tech3 {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 568px;
     grid-area: 62 / 1 / 63 / 2;
     justify-self: start;
     align-self: start;
 }
-#comp-tech9 {
+#comp-tech4 {
+    position: relative;
+    margin: 0px 0px 34px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 63 / 1 / 64 / 2;
+    justify-self: start;
+    align-self: start;
+}
+#comp-tech5 {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
@@ -895,11 +962,43 @@ table {
     justify-self: start;
     align-self: start;
 }
+#comp-tech6 {
+    position: relative;
+    margin: -10px 0px 18px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 65 / 1 / 66 / 2;
+    justify-self: start;
+    align-self: start;
+}
+#comp-tech7 {
+    position: relative;
+    margin: 0px 0px 9px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 66 / 1 / 67 / 2;
+    justify-self: start;
+    align-self: start;
+}
+#comp-tech8 {
+    position: relative;
+    margin: -10px 0px 18px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 67 / 1 / 68 / 2;
+    justify-self: start;
+    align-self: start;
+}
+#comp-tech9 {
+    position: relative;
+    margin: 0px 0px 9px calc((100% - 980px) * 0.5);
+    left: 600px;
+    grid-area: 68 / 1 / 69 / 2;
+    justify-self: start;
+    align-self: start;
+}
 #comp-tech10 {
     position: relative;
     margin: -10px 0px 0px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 65 / 1 / 66 / 2;
+    grid-area: 69 / 1 / 70 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -907,7 +1006,7 @@ table {
     position: relative;
     margin: 0px 0 29px 0;
     left: 0;
-    grid-area: 66 / 1 / 67 / 2;
+    grid-area: 70 / 1 / 71 / 2;
     justify-self: stretch;
     align-self: start;
 }
@@ -915,7 +1014,7 @@ table {
     position: relative;
     margin: 0px 0 45px 0;
     left: 0;
-    grid-area: 67 / 1 / 68 / 2;
+    grid-area: 71 / 1 / 72 / 2;
     justify-self: stretch;
     align-self: start;
 }
@@ -923,7 +1022,7 @@ table {
     position: relative;
     margin: 0px 0px 0 calc((100% - 980px) * 0.5);
     left: 568px;
-    grid-area: 68 / 1 / 69 / 2;
+    grid-area: 72 / 1 / 73 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -931,7 +1030,7 @@ table {
     position: relative;
     margin: 0px 0px 34px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 69 / 1 / 70 / 2;
+    grid-area: 73 / 1 / 74 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -939,7 +1038,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 70 / 1 / 71 / 2;
+    grid-area: 74 / 1 / 75 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -947,7 +1046,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 71 / 1 / 72 / 2;
+    grid-area: 75 / 1 / 76 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -955,7 +1054,7 @@ table {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 72 / 1 / 73 / 2;
+    grid-area: 76 / 1 / 77 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -963,7 +1062,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 73 / 1 / 74 / 2;
+    grid-area: 77 / 1 / 78 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -971,7 +1070,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 74 / 1 / 75 / 2;
+    grid-area: 78 / 1 / 79 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -979,7 +1078,7 @@ table {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 75 / 1 / 76 / 2;
+    grid-area: 79 / 1 / 80 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -987,7 +1086,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 76 / 1 / 77 / 2;
+    grid-area: 80 / 1 / 81 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -995,7 +1094,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 77 / 1 / 78 / 2;
+    grid-area: 81 / 1 / 82 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1003,7 +1102,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 78 / 1 / 79 / 2;
+    grid-area: 82 / 1 / 83 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1011,7 +1110,7 @@ table {
     position: relative;
     margin: 0px 0 29px 0;
     left: 0;
-    grid-area: 79 / 1 / 80 / 2;
+    grid-area: 83 / 1 / 84 / 2;
     justify-self: stretch;
     align-self: start;
 }
@@ -1019,7 +1118,7 @@ table {
     position: relative;
     margin: 0px 0 45px 0;
     left: 0;
-    grid-area: 80 / 1 / 81 / 2;
+    grid-area: 84 / 1 / 85 / 2;
     justify-self: stretch;
     align-self: start;
 }
@@ -1027,7 +1126,7 @@ table {
     position: relative;
     margin: 0px 0px 0 calc((100% - 980px) * 0.5);
     left: 568px;
-    grid-area: 81 / 1 / 82 / 2;
+    grid-area: 85 / 1 / 86 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1035,7 +1134,7 @@ table {
     position: relative;
     margin: 0px 0px 34px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 82 / 1 / 83 / 2;
+    grid-area: 86 / 1 / 87 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1043,7 +1142,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 83 / 1 / 84 / 2;
+    grid-area: 87 / 1 / 88 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1051,7 +1150,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 84 / 1 / 85 / 2;
+    grid-area: 88 / 1 / 89 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1059,7 +1158,7 @@ table {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 85 / 1 / 86 / 2;
+    grid-area: 89 / 1 / 90 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1067,7 +1166,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 86 / 1 / 87 / 2;
+    grid-area: 90 / 1 / 91 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1075,7 +1174,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 87 / 1 / 88 / 2;
+    grid-area: 91 / 1 / 92 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1083,7 +1182,7 @@ table {
     position: relative;
     margin: 0px 0px 28px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 88 / 1 / 89 / 2;
+    grid-area: 92 / 1 / 93 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1091,7 +1190,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 89 / 1 / 90 / 2;
+    grid-area: 93 / 1 / 94 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1099,7 +1198,7 @@ table {
     position: relative;
     margin: 0px 0px 9px calc((100% - 980px) * 0.5);
     left: 600px;
-    grid-area: 90 / 1 / 91 / 2;
+    grid-area: 94 / 1 / 95 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1108,7 +1207,7 @@ table {
     margin: 0px 0px 0 calc((100% - 980px) * 0.5);
     margin-bottom: 70px;
     left: 600px;
-    grid-area: 91 / 1 / 92 / 2;
+    grid-area: 95 / 1 / 96 / 2;
     justify-self: start;
     align-self: start;
 }
@@ -1118,7 +1217,7 @@ table {
     margin: 0px 0px 0 calc((100% - 980px) * 0.5);
     margin-bottom: 70px;
     left: 600px;
-    grid-area: 92 / 1 / 93 / 2;
+    grid-area: 96 / 1 / 97 / 2;
     justify-self: start;
     align-self: start;
 }

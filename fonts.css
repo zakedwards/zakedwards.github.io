@@ -5,32 +5,53 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'CMUSerifRoman';
+    src: url('fonts/cmunrm.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CMUSerifBold';
+    src: url('fonts/cmunbx.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CMUSerifExtraRomanSlanted';
+    src: url('fonts/cmunsl.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
 .font_1 {
-    font: normal normal bold 87px/1.4em 'Times New Roman', times, serif;
+    font: normal normal normal 88px/1.4em 'CMUSerifRoman', times, serif;
     color: #000000;
 } 
 .font_2 {
-    font: italic normal normal 60px/1.4em 'Times New Roman', times, serif;
-    color: #000000;
+    font: italic normal normal 44px/1.4em 'CMUSerifExtraRomanSlanted', times, serif;
+    color: #555555;
 }
 .font_3 {
-    font: normal normal normal 30px/1.4em 'Times New Roman', times, serif;
-    color: #000000;
+    font: normal normal normal 30px/1.4em 'CMUSerifRoman', times, serif;
+    color: #185096;
 }
 .font_4 {
-    font: normal normal normal 16px/1.4em 'Times New Roman', times, serif;
-    color: #970000;
-}
-.font_5 {
-    font: normal normal normal 18px/1.4em 'Times New Roman', times, serif;
+    font: normal normal normal 16px/1.4em 'CMUSerifRoman', times, serif;
     color: #000000;
 }
+.font_5 {
+    font: normal normal normal 18px/1.4em 'CMUTypewriterTextRoman', times, serif;
+    color: #555555;
+}
 .font_6 {
-    font: normal normal normal 16px/1.4em 'Times New Roman', times, serif;
+    font: normal normal normal 16px/1.4em 'CMUSerifRoman', times, serif;
     color: #000000;
 }
 .font_7 {
-    font: italic normal normal 14px/1.4em 'Times New Roman', times, serif;
+    font: italic normal normal 14px/1.4em 'CMUSerifExtraRomanSlanted', times, serif;
     color: #000000;
 }
 .font_8 {
@@ -44,5 +65,9 @@
 }
 .font_10 {
     font: normal normal normal 16px/1.4em 'CMUTypewriterTextRoman';
-    color: #970000;
+    color: #000000;
+}
+.font_11 {
+    font: normal normal bold 16px/1.4em 'CMUSerifBold', times, serif;
+    color: #000000;
 }
