@@ -1301,34 +1301,58 @@ table {
     float: right;
 }
 
-.jump-to {
-    position: fixed;
-    width:420px;
-    top: 160px;
-    right: 54px;
-    z-index:100;
-    text-align: right;
-}
-.jump-to-header {
-    font: italic normal normal 16px/1.4em 'CMUSerifRoman', times, serif;
-    color: #185096;
-}
-.jump-to-label {
-    font: normal normal normal 18px/1.4em 'CMUSerifRoman', times, serif;
-    color: #000000;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.jump-to-label:hover {
-    color: #185096;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
 .flex-child {
   flex-grow: 1;
 }
 .outer {
   display: flex;
+}
+
+.jump-to {
+    float: right;
+    right: 54px;
+    display: inline;
+    z-index: 999;
+}
+.jump-to a:hover {
+    color: #185096;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.jump-to-content {
+    font: normal normal normal 18px/1.4em 'CMUSerifRoman', times, serif;
+    color: #000000;
+    line-height: 1.8;
+    top: 196px;
+    right: 54px;
+    text-align: right;
+    display: none;
+    position: fixed;
+    z-index: 999;
+}
+.jump-to-content a {
+    color: #000000;
+    background-color: #ffffff;
+    display: inline;
+    overflow: hidden;
+}
+.jump-to-button {
+    font: normal normal normal 16px/1.4em 'CMUSerifRoman', times, serif;
+    color: #185096;
+    background-color: #ffffff;
+    top: 161px;
+    right: 54px;
+    z-index:999;
+    text-align: right;
+    position: fixed;
+    border: none;
+    cursor: pointer;
+}
+.jump-to-button:hover, .jump-to-button:focus {
+    font: normal normal normal 16px/1.4em 'CMUSerifRoman', times, serif;
+    color: #185096;
+    text-decoration: underline;
+}
+.show {
+    display: block;
 }

@@ -53,11 +53,22 @@
             });
         });
     </script>
-    <script type="text/javascript">
-        @media screen and (max-width: 1440px){
-            .jump-to {
-                display: none;
+    <script>
+        function dropdown() {
+          document.getElementById("dropdown-entries").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+          if (!event.target.matches('.jump-to-button')) {
+            var dropdowns = document.getElementsByClassName("jump-to-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
             }
+          }
         }
     </script>
 
@@ -170,6 +181,24 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="jump-to">
+            <button onclick="dropdown()" class="jump-to-button">Jump to [show/hide]:</button>
+            <div id="dropdown-entries" class="jump-to-content">
+                <a href="#barker"><i class="fa fa-angle-right fa-fw"></i>RSC Geoffrey Barker Medal</a><br>
+                <a href="#oman-button"><i class="fa fa-angle-right fa-fw"></i>Sultanate of Oman Medal Ribbon Attachment</a><br>
+                <a href="#dorothy"><i class="fa fa-angle-right fa-fw"></i>Balfour Beatty/Vinci HS2 Medal</a><br>
+                <a href="#cap-badges"><i class="fa fa-angle-right fa-fw"></i>Police Cap Badges (miscellaneous)</a><br>
+                <a href="#inspector-hub"><i class="fa fa-angle-right fa-fw"></i>Police Inspector Cap Badge Master Hub</a><br>
+                <a href="#firmin-backforces"><i class="fa fa-angle-right fa-fw"></i>Firmin & Sons Button Backforces</a><br>
+                <a href="#kettles-yard"><i class="fa fa-angle-right fa-fw"></i>Kettle's Yard PLA Button</a><br>
+                <a href="#benson-clegg"><i class="fa fa-angle-right fa-fw"></i>Benson & Clegg Button Punches</a><br>
+                <a href="#std-helmet"><i class="fa fa-angle-right fa-fw"></i>Standard Police Helmet Plate and Transfer Centres</a><br>
+                <a href="#cypher-master"><i class="fa fa-angle-right fa-fw"></i>King Charles III Royal Cypher</a><br>
+                <a href="#royal-engineers"><i class="fa fa-angle-right fa-fw"></i>Royal Engineers Cap Badge</a><br>
+                <a href="#nil-mortali"><i class="fa fa-angle-right fa-fw"></i>‘Nil Mortali…’ Backplate & Mount</a><br>
+                <a href="#misc"><i class="fa fa-angle-right fa-fw"></i>(Miscellaneous)</a>
             </div>
         </div>
         <main id="page-container" class="sect-page" data-is-mesh="true" data-is-mobile="false" data-site-width="980" style="min-width:980px">
@@ -412,9 +441,47 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div id="portfolio-padding-sub"></div>
+
+                                        <div class="outer">
+                                            <div class="sub-zg flex-child">
+                                                <a href="img/inspector-hub/6.jpg" title="Police Inspector Cap Badge Master Die Pattern">
+                                                    <img src="img/inspector-hub/6.jpg" width="268px">
+                                                </a>
+                                            </div>
+                                            <div class="sub-zg flex-child">
+                                                <a href="img/inspector-hub/7.jpg" title="Police Inspector Cap Badge Master Die <i>(after hubbing)</i>">
+                                                    <img src="img/inspector-hub/7.jpg" width="268px">
+                                                </a>
+                                            </div>
+                                            <div class="sub-zg flex-child">
+                                                <a href="img/inspector-hub/8.jpg" title="Police Inspector Cap Badge Master Die">
+                                                    <img src="img/inspector-hub/8.jpg" width="268px">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="outer">
+                                            <div class="flex-child">
+                                                <div class="sub-zg" style="float:left">
+                                                    <a href="img/inspector-hub/10.jpg" title="Police Inspector Cap Badge Master Die Stamping">
+                                                        <img src="img/inspector-hub/10.jpg" width="404px">
+                                                    </a>
+                                                </div>
+                                                <div class="sub-zg" style="float:left">
+                                                    <a href="img/inspector-hub/11.jpg" title="Police Inspector Cap Badge Master Die Stamping">
+                                                        <img src="img/inspector-hub/11.jpg" width="404px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="sub-zg flex-child">
+                                                <a href="img/inspector-hub/9.jpg" title="Police Inspector Cap Badge Master Die">
+                                                    <img src="img/inspector-hub/9.jpg" width="404px">
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
